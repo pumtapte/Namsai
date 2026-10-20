@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="บริการจำหน่ายน้ำดื่มบรรจุขวดและน้ำดื่มถัง สะอาด สดชื่น พร้อมให้บริการ ติดต่อ 084-456-2954">
+  <title>น้ำดื่มใสสะอาด | สดชื่นทุกวัน</title>
+  <style>
+    :root {
+      --site-primary: #087eaf;
+      --site-on-primary: #ffffff;
+      --site-secondary: #d9f4fa;
+      --site-on-secondary: #103e55;
+      --site-background: #f5fbfd;
+      --site-on-background: #17384a;
+      --site-font-body: "Leelawadee UI", Tahoma, "Noto Sans Thai", sans-serif;
+      --site-font-heading: "Leelawadee UI", Tahoma, "Noto Sans Thai", sans-serif;
+      --site-heading-scale: 1;
+      --site-spacing-scale: 1;
+      --site-radius-scale: 1;
+      --site-decoration-opacity: 1;
+      --surface: light-dark(#ffffff, #15252d);
+      --muted: light-dark(#557080, #b1c6d0);
+      --line: light-dark(#dcecf1, #314650);
+      color-scheme: light dark;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--site-on-background); }
+    a { color: inherit; text-decoration: none; }
+    .site-root { min-height: 100vh; width: 100%; background-color: var(--site-background); border-radius: 0; overflow: hidden; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header { background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; font-size: 1.15rem; color: var(--site-primary); }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--site-secondary); }
+    .brand-mark svg { width: 25px; height: 25px; }
+    nav { display: flex; align-items: center; gap: 28px; font-size: .96rem; font-weight: 600; }
+    nav a:hover { color: var(--site-primary); }
+    .button { display: inline-flex; justify-content: center; align-items: center; gap: 9px; padding: 13px 21px; border-radius: calc(14px * var(--site-radius-scale)); font-weight: 800; transition: transform .2s, opacity .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--site-primary); color: var(--site-on-primary); }
+    .button-light { background: white; color: #087eaf; }
+    .hero { background: var(--site-secondary); position: relative; isolation: isolate; }
+    .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; background: #ffffff; opacity: calc(.45 * var(--site-decoration-opacity)); z-index: -1; }
+    .hero::before { width: 280px; height: 280px; top: -140px; right: 9%; }
+    .hero::after { width: 180px; height: 180px; bottom: -90px; left: -45px; }
+    .hero-inner { min-height: 490px; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 30px; padding-top: calc(55px * var(--site-spacing-scale)); padding-bottom: calc(55px * var(--site-spacing-scale)); }
+    .eyebrow { color: var(--site-primary); font-weight: 800; letter-spacing: .04em; }
+    h1, h2, h3 { font-family: var(--site-font-heading); line-height: 1.25; margin: 0; }
+    h1 { font-size: calc(clamp(2.4rem, 5vw, 4.3rem) * var(--site-heading-scale)); letter-spacing: -.035em; margin: 14px 0 18px; }
+    h1 span { color: var(--site-primary); }
+    .hero p { color: var(--site-on-secondary); font-size: 1.1rem; line-height: 1.9; max-width: 520px; margin: 0 0 27px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-art { display: flex; align-items: center; justify-content: center; min-height: 330px; position: relative; }
+    .water-art { width: min(100%, 440px); filter: drop-shadow(0 22px 22px #07547724); }
+    .section { padding: calc(82px * var(--site-spacing-scale)) 0; }
+    .section-head { max-width: 650px; margin: 0 auto 42px; text-align: center; }
+    .section-head h2 { font-size: calc(clamp(1.8rem, 3vw, 2.65rem) * var(--site-heading-scale)); margin: 10px 0 12px; }
+    .section-head p { color: var(--muted); line-height: 1.8; margin: 0; }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 54px; align-items: center; }
+    .about-visual { min-height: 300px; border-radius: calc(28px * var(--site-radius-scale)); background: var(--site-secondary); display: grid; place-items: center; padding: 25px; }
+    .about-visual svg { width: min(100%, 300px); }
+    .about-copy h2 { font-size: calc(clamp(1.8rem, 3vw, 2.5rem) * var(--site-heading-scale)); margin: 10px 0 17px; }
+    .about-copy p { color: var(--muted); line-height: 1.95; margin: 0 0 14px; }
+    .values { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .value-chip { padding: 9px 13px; background: var(--surface); border: 1px solid var(--line); border-radius: 99px; font-weight: 700; font-size: .9rem; }
+    .products { background: var(--surface); }
+    .product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .product-card { border: 1px solid var(--line); border-radius: calc(24px * var(--site-radius-scale)); overflow: hidden; background: var(--site-background); }
+    .product-art { height: 245px; background: var(--site-secondary); display: grid; place-items: center; padding: 20px; }
+    .product-art svg { height: 100%; width: 100%; max-width: 280px; }
+    .product-copy { padding: 25px 27px 28px; }
+    .product-copy h3 { font-size: 1.45rem; margin-bottom: 9px; }
+    .product-copy p { color: var(--muted); line-height: 1.8; margin: 0 0 18px; }
+    .text-link { color: var(--site-primary); font-weight: 800; display: inline-flex; align-items: center; gap: 8px; }
+    .contact { padding: 0 0 calc(82px * var(--site-spacing-scale)); }
+    .contact-panel { background: var(--site-primary); color: var(--site-on-primary); border-radius: calc(28px * var(--site-radius-scale)); padding: 46px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .contact-panel h2 { font-size: calc(clamp(1.8rem, 3vw, 2.6rem) * var(--site-heading-scale)); margin: 8px 0 12px; }
+    .contact-panel p { margin: 0; line-height: 1.8; opacity: .9; }
+    .phone { font-size: clamp(1.5rem, 3vw, 2.15rem); font-weight: 900; white-space: nowrap; display: block; margin-bottom: 15px; }
+    footer { border-top: 1px solid var(--line); padding: 23px 0; color: var(--muted); font-size: .9rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      .container { width: min(100% - 30px, 560px); }
+      .nav { min-height: 68px; }
+      nav { gap: 14px; font-size: .85rem; }
+      nav .nav-contact { display: none; }
+      .brand { font-size: 1rem; gap: 7px; }
+      .brand-mark { width: 36px; height: 36px; }
+      .hero-inner { grid-template-columns: 1fr; padding-top: 52px; gap: 4px; }
+      .hero-art { min-height: 240px; }
+      .water-art { max-width: 320px; }
+      .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-visual { min-height: 230px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .product-art { height: 220px; }
+      .contact-panel { padding: 30px 25px; flex-direction: column; align-items: flex-start; }
+      .section { padding: 60px 0; }
+      .contact { padding-bottom: 60px; }
+    }
+    @media (max-width: 420px) {
+      nav { gap: 10px; }
+      nav a { font-size: .78rem; }
+      .hero-actions .button { width: 100%; }
+      .phone { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-root">
+    <header>
+      <div class="container nav">
+        <a class="brand" href="#home" aria-label="น้ำดื่มใสสะอาด หน้าแรก">
+          <span class="brand-mark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3C12 9 7 14 7 20a9 9 0 0 0 18 0c0-6-5-11-9-17Z" fill="#087eaf"/><path d="M11 21c.5 2.4 2.1 3.8 4.5 4.2" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <span>น้ำดื่มใสสะอาด</span>
+        </a>
+        <nav aria-label="เมนูหลัก">
+          <a href="#about">ประวัติบริษัท</a>
+          <a href="#products">สินค้า</a>
+          <a class="nav-contact" href="#contact">ติดต่อเรา</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-inner">
+          <div>
+            <div class="eyebrow">สะอาด สดชื่น ใส่ใจทุกหยด</div>
+            <h1>น้ำดื่มคุณภาพดี<br><span>สดชื่นได้ทุกวัน</span></h1>
+            <p>เติมความสดชื่นให้ทุกวันของคุณ ด้วยน้ำดื่มสำหรับบ้าน ออฟฟิศ และธุรกิจ เลือกได้ทั้งน้ำดื่มบรรจุขวดและน้ำดื่มถัง</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#products">เลือกชมสินค้า <span aria-hidden="true">→</span></a>
+              <a class="button button-light" href="tel:0844562954">โทร 084-456-2954</a>
+            </div>
+          </div>
+          <div class="hero-art" aria-label="ภาพประกอบขวดน้ำดื่ม" role="img">
+            <svg class="water-art" viewBox="0 0 440 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="220" cy="185" r="150" fill="#fff" opacity=".48"/>
+              <circle cx="336" cy="65" r="15" fill="#fff" opacity=".8"/><circle cx="90" cy="270" r="10" fill="#fff" opacity=".8"/>
+              <path d="M166 70h40v31l20 28v159c0 15-12 27-27 27h-26c-15 0-27-12-27-27V129l20-28V70Z" fill="#e9fbff" stroke="#087eaf" stroke-width="3"/>
+              <path d="M166 70h40v31h-40z" fill="#9de4f6" stroke="#087eaf" stroke-width="3"/>
+              <path d="M146 170h80v102c0 13-10 23-23 23h-34c-13 0-23-10-23-23V170Z" fill="#31b9e5" opacity=".65"/>
+              <path d="M158 143v-10l13-19M158 153v8" stroke="white" stroke-width="5" stroke-linecap="round"/>
+              <rect x="151" y="195" width="70" height="43" rx="9" fill="white"/>
+              <path d="M186 202c-6 9-12 15-12 21a12 12 0 0 0 24 0c0-6-6-12-12-21Z" fill="#087eaf"/>
+              <path d="M264 105h31v24l16 22v137c0 13-10 23-23 23h-17c-13 0-23-10-23-23V151l16-22v-24Z" fill="#c8f4ff" stroke="#087eaf" stroke-width="3"/>
+              <path d="M264 105h31v24h-31z" fill="#71d7f2" stroke="#087eaf" stroke-width="3"/>
+              <path d="M248 191h63v97c0 11-9 20-20 20h-23c-11 0-20-9-20-20v-97Z" fill="#31b9e5" opacity=".58"/>
+              <path d="M259 169v-7l11-15" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              <path d="M85 315c40-20 79-18 116-3 40 16 80 13 133-8" stroke="#69cfe9" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container about-grid">
+          <div class="about-visual" aria-hidden="true">
+            <svg viewBox="0 0 300 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="150" cy="125" r="104" fill="#fff" opacity=".72"/>
+              <path d="M150 38c-24 34-49 62-49 94a49 49 0 0 0 98 0c0-32-25-60-49-94Z" fill="#40c2e7"/>
+              <path d="M124 135c3 15 13 25 28 28" stroke="white" stroke-width="7" stroke-linecap="round"/>
+              <path d="M58 208c22-12 43-14 62-8m60 0c22-7 43-4 62 8" stroke="#087eaf" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+            </svg>
+          </div>
+          <div class="about-copy">
+            <div class="eyebrow">เกี่ยวกับเรา</div>
+            <h2>ใส่ใจคุณภาพ เพื่อความสดชื่นของทุกคน</h2>
+            <p>เรามุ่งมั่นให้บริการน้ำดื่มที่สะอาดและสะดวกต่อการใช้งานในทุกวัน พร้อมเป็นตัวเลือกสำหรับครอบครัว สำนักงาน ร้านค้า และธุรกิจที่ต้องการน้ำดื่มไว้บริการ</p>
+            <p>เราตั้งใจดูแลทุกขั้นตอนการให้บริการ และให้ความสำคัญกับความพึงพอใจของลูกค้าเป็นหลัก</p>
+            <div class="values"><span class="value-chip">✓ ใส่ใจคุณภาพ</span><span class="value-chip">✓ บริการเป็นกันเอง</span><span class="value-chip">✓ มีสินค้าให้เลือก</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section products" id="products">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">สินค้าของเรา</div>
+            <h2>เลือกน้ำดื่มที่ใช่สำหรับคุณ</h2>
+            <p>ตอบโจทย์ทั้งการพกพาและการใช้งานประจำวัน เลือกรูปแบบที่เหมาะกับคุณได้เลย</p>
+          </div>
+          <div class="product-grid">
+            <article class="product-card">
+              <div class="product-art" aria-hidden="true">
+                <svg viewBox="0 0 260 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="130" cy="177" rx="78" ry="10" fill="#087eaf" opacity=".12"/>
+                  <g transform="translate(63 14)"><path d="M42 6h30v22l13 20v96c0 10-8 18-18 18H47c-10 0-18-8-18-18V48l13-20V6Z" fill="#e9fbff" stroke="#087eaf" stroke-width="2.5"/><path d="M42 6h30v22H42z" fill="#83dff5" stroke="#087eaf" stroke-width="2.5"/><path d="M31 85h52v59c0 10-8 18-18 18H49c-10 0-18-8-18-18V85Z" fill="#36bde5" opacity=".65"/><rect x="36" y="94" width="42" height="29" rx="6" fill="white"/><path d="M57 99c-5 7-8 10-8 14a8 8 0 0 0 16 0c0-4-3-7-8-14Z" fill="#087eaf"/><path d="M40 55v-7l8-12" stroke="white" stroke-width="4" stroke-linecap="round"/></g>
+                  <g transform="translate(135 42) scale(.76)"><path d="M42 6h30v22l13 20v96c0 10-8 18-18 18H47c-10 0-18-8-18-18V48l13-20V6Z" fill="#e9fbff" stroke="#087eaf" stroke-width="2.5"/><path d="M42 6h30v22H42z" fill="#83dff5" stroke="#087eaf" stroke-width="2.5"/><path d="M31 85h52v59c0 10-8 18-18 18H49c-10 0-18-8-18-18V85Z" fill="#36bde5" opacity=".65"/></g>
+                </svg>
+              </div>
+              <div class="product-copy"><h3>น้ำดื่มบรรจุขวด</h3><p>เหมาะสำหรับพกพา ประชุม งานเลี้ยง ร้านค้า และเติมความสดชื่นระหว่างวัน</p><a class="text-link" href="tel:0844562954">สอบถามสินค้า <span aria-hidden="true">→</span></a></div>
+            </article>
+            <article class="product-card">
+              <div class="product-art" aria-hidden="true">
+                <svg viewBox="0 0 260 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="130" cy="178" rx="72" ry="10" fill="#087eaf" opacity=".12"/>
+                  <path d="M104 19h52v17h-52z" fill="#087eaf"/><path d="M111 36h38l10 18 15 21v79c0 11-9 20-20 20h-48c-11 0-20-9-20-20V75l15-21 10-18Z" fill="#e5faff" stroke="#087eaf" stroke-width="3"/>
+                  <path d="M88 96h84v58c0 11-9 20-20 20h-44c-11 0-20-9-20-20V96Z" fill="#32bce5" opacity=".7"/>
+                  <path d="M104 54h52l11 20H93l11-20Z" fill="#a4e8f8"/><path d="M105 91v-8l11-16" stroke="white" stroke-width="5" stroke-linecap="round"/><rect x="102" y="110" width="56" height="31" rx="7" fill="white"/><path d="M130 114c-5 7-9 11-9 15a9 9 0 0 0 18 0c0-4-4-8-9-15Z" fill="#087eaf"/>
+                </svg>
+              </div>
+              <div class="product-copy"><h3>น้ำดื่มถัง</h3><p>เหมาะสำหรับบ้าน สำนักงาน และสถานที่ที่ต้องการน้ำดื่มสำหรับหลายคนในแต่ละวัน</p><a class="text-link" href="tel:0844562954">สอบถามสินค้า <span aria-hidden="true">→</span></a></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="container">
+          <div class="contact-panel">
+            <div><div class="eyebrow" style="color:#d8f7ff">ติดต่อเรา</div><h2>สนใจสั่งซื้อน้ำดื่ม?</h2><p>สอบถามรายละเอียดสินค้าและการสั่งซื้อได้ทางโทรศัพท์ เรายินดีให้บริการ</p></div>
+            <div><a class="phone" href="tel:0844562954">084-456-2954</a><a class="button button-light" href="tel:0844562954">โทรหาเราตอนนี้ <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer><div class="container footer-inner"><span>© <span id="year">2026</span> น้ำดื่มใสสะอาด</span><span>สดชื่นทุกวัน ด้วยน้ำดื่มที่คุณเลือกได้</span></div></footer>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
